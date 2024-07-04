@@ -4,7 +4,6 @@ interface BlogCardProps{
     authorName:string;
     title:string;
     content:string;
-    publishedDate:string;
     id:number
 }
 
@@ -14,7 +13,6 @@ export const BlogCard=({
     authorName,
     title,
     content,
-    publishedDate,
     id
 }:BlogCardProps)=>{
     return(
