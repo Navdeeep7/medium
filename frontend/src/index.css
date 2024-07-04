@@ -1,3 +1,108 @@
+/* src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Add your custom global styles here */
+
+/* Headings */
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.75em;
+  font-weight: bold;
+  margin-bottom: 0.875rem;
+}
+
+h3 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+}
+
+h4 {
+  font-size: 1.25em;
+  font-weight: bold;
+  margin-bottom: 0.625rem;
+}
+
+h5 {
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+h6 {
+  font-size: 0.875em;
+  font-weight: bold;
+  margin-bottom: 0.375rem;
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 1rem;
+}
+
+/* Anchors */
+a {
+  color: #1a202c; /* Default color, adjust as needed */
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #2b6cb0; /* Hover color, adjust as needed */
+}
+
+ol {
+    list-style-type: decimal; /* Default numbering */
+    margin-bottom: 1rem;
+    padding-left: 1.5rem; /* Adjust indentation as needed */
+  }
+  
+  /* List Items */
+  li {
+    margin-bottom: 0.5rem;
+  }
+/* Lists */
+ul {
+    list-style-type: disc; /* Default bullet points */
+    margin-bottom: 1rem;
+    padding-left: 1.5rem; /* Adjust indentation as needed */
+  }
+  
+  /* List Items */
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+/* Bold and Italic */
+b, strong {
+  font-weight: bold;
+}
+
+i, em {
+  font-style: italic;
+}
+
+/* Underline */
+u {
+  text-decoration: underline;
+}
+
+/* Strikethrough */
+s {
+  text-decoration: line-through;
+}
+
+/* Blockquote */
+blockquote {
+  border-left: 4px solid #d1d5db; /* Adjust color as needed */
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: #6b7280; /* Adjust color as needed */
+  font-style: italic;
+}

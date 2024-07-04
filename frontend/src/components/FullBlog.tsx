@@ -5,6 +5,7 @@ import { Avatar } from "./blogcard"
 export const FullBlog = ({ blog }: {blog: Blog}) => {
     return <div>
         <Appbar />
+        
         <div className="flex justify-center">
            <div className="max-w-6xl">
            <div className="text-6xl font-bold">
@@ -13,9 +14,10 @@ export const FullBlog = ({ blog }: {blog: Blog}) => {
             <div className="pt-4 ">
                 Author: <Avatar name={blog.author.name} loading={false}/> {blog.author.name} 
             </div>
-            <div className="pt-4 text-xl font-semibold">
-                {blog.content}
+            <div className="pt-4 " dangerouslySetInnerHTML={{__html:blog.content}}>
+               
             </div>
+            
            </div>
         </div>
     </div>

@@ -4,6 +4,28 @@ import { BACKEND_URL } from "../config";
 import { AxiosResponse } from "axios";
 import  axios  from "axios";
 import { useNavigate } from "react-router-dom";
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+const modules = {
+    toolbar: [
+        [{ 'header': '1'}, {'header': '2'}],
+       
+        ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+        [{'list': 'ordered'}, {'list': 'bullet'}, 
+         ],
+        ['link', 'image'],
+        ['clean']
+    ],
+    clipboard: {
+        matchVisual: false,
+    }
+};
+const formats = [
+    'header', 'font', 'size',
+    'bold', 'italic', 'underline', 'strike', 'blockquote',
+    'list', 'bullet', 'indent',
+    'link', 'image', 'video'
+];
 export const PublishPage=()=>{
     const [loading,setloading]=useState(false);
     const [blog,setBlog]=useState({
@@ -14,8 +36,8 @@ export const PublishPage=()=>{
     function onTitleChange(e:any){
         setBlog({...blog,title:e.target.value});
     }
-    function onContentChange(e:any){
-        setBlog({...blog,content:e.target.value});
+    function onContentChange(content:string){
+        setBlog({...blog,content});
     }
     function onPublish(){
         setloading(true);
@@ -58,7 +80,9 @@ export const PublishPage=()=>{
                 
                 </div>
                 <div>
-                <textarea className="border-2 rounded-lg p-1 w-full" placeholder="Enter content"  cols={40} rows={20} onChange={onContentChange}/>
+                <ReactQuill theme="snow"  modules={modules}
+                formats={formats} value={blog.content} onChange={onContentChange} />
+                
                </div>
                </div>
                 
