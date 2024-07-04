@@ -21,7 +21,7 @@ export const BlogCard=({
         <Link to={`/blog/${id}`}><div className="p-4 border-b-2 max-w-4xl flex flex-col">
         <div className="flex items-center"><Avatar name={authorName} loading={false}/>
            <div className="pl-2 font-semibold">{authorName} . </div> 
-           <div className="text-sm text-slate-600">{publishedDate}</div>
+           
         </div>
         
         <div className="text-2xl font-bold mt-2 ">
