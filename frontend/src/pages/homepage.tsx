@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import { useNavigate } from 'react-router-dom'
 import { BACKEND_URL } from '../config';
-
+import { AxiosResponse } from 'axios';
 
 
 
@@ -18,11 +18,11 @@ export function Homepage() {
   }
   const checkuser=()=>{
    
-    axios.get(`${BACKEND_URL}/api/v1/blog/name`,{
+    axios.get<any>(`${BACKEND_URL}/api/v1/blog/name`,{
         headers:{
             Authorization:localStorage.getItem("token")
         }
-    }).then(res=>{
+    }).then((res:AxiosResponse<any>)=>{
         if(res.data.name)
             {
                 navigate("/blogs")

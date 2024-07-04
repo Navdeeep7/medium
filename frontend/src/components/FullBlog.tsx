@@ -11,7 +11,7 @@ export const FullBlog = ({ blog }: {blog: Blog}) => {
                 {blog.title}
             </div>
             <div className="pt-4 ">
-                Author: <Avatar name={blog.author.name} /> {blog.author.name}
+                Author: <Avatar name={blog.author.name} loading={false}/> {blog.author.name} 
             </div>
             <div className="pt-4 text-xl font-semibold">
                 {blog.content}

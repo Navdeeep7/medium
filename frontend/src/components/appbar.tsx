@@ -3,17 +3,17 @@ import { Avatar } from "./blogcard"
 import { useNavigate } from "react-router-dom"
 import axios from "axios";
 import { BACKEND_URL } from "../config";
-
+import { AxiosResponse } from "axios";
 export const Appbar=()=>{
     const navigate=useNavigate();
     const[name,setName]=useState<string>("");
     const [loading,setloading]=useState(true);
     useEffect(()=>{
-        axios.get(`${BACKEND_URL}/api/v1/blog/name`,{
+        axios.get<any>(`${BACKEND_URL}/api/v1/blog/name`,{
             headers:{
                 Authorization:localStorage.getItem("token")
             }
-        }).then(res=>{
+        }).then((res:AxiosResponse<any>)=>{
             setName(res.data.name)
             setloading(false);
         })

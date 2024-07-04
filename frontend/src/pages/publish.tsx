@@ -1,7 +1,7 @@
 import { Appbar } from "../components/appbar"
 import { useState } from "react";
 import { BACKEND_URL } from "../config";
-import { useEffect } from "react";
+import { AxiosResponse } from "axios";
 import  axios  from "axios";
 import { useNavigate } from "react-router-dom";
 export const PublishPage=()=>{
@@ -20,14 +20,14 @@ export const PublishPage=()=>{
     function onPublish(){
         setloading(true);
     
-        axios.post(`${BACKEND_URL}/api/v1/blog/blog`, blog, {
+        axios.post<any>(`${BACKEND_URL}/api/v1/blog/blog`, blog, {
             headers: {
                 Authorization: localStorage.getItem("token")
             }
-        }).then(response => {
+        }).then((response:AxiosResponse<any>) => {
             setloading(false);
             navigate(`/blog/${response.data.id}`);
-        }).catch(error => {
+        }).catch((error:any) => {
             setloading(false);
             // Handle the error appropriately
             console.error("There was an error publishing the blog!", error);
