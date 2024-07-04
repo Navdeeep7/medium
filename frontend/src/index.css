@@ -48,10 +48,10 @@ p {
 }
 
 /* Anchors */
-a {
+/* a {
   color: #1a202c; /* Default color, adjust as needed */
-  text-decoration: underline;
-}
+  /* text-decoration: underline;
+} */ */
 
 a:hover {
   color: #2b6cb0; /* Hover color, adjust as needed */
@@ -89,9 +89,9 @@ i, em {
 }
 
 /* Underline */
-u {
+/* u {
   text-decoration: underline;
-}
+} */
 
 /* Strikethrough */
 s {
