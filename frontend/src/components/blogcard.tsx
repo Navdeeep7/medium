@@ -5,7 +5,7 @@ interface BlogCardProps{
     title:string;
     content:string;
     id:number
-}
+} 
 
 
 

@@ -25,7 +25,7 @@ export const Appbar=()=>{
 
     }
     return(
-        <div className="border-b flex justify-between px-10 py-4 bg-gray-800">
+        <div className="border-b flex justify-between px-4 md:px-10 py-4 bg-gray-800">
             <div className="text-2xl text-white">
                 Blog.com
             </div>

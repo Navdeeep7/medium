@@ -8,8 +8,8 @@ export const Auth = ({ type }: { type: "signup" | "signin" }) => {
     const navigate = useNavigate();
     const [postInputs, setPostInputs] = useState({
         name: "",
-        email: "",
-        password: ""
+        email: "admin@gmail.com",
+        password: "admin12"
     });
     const [loading,setLoading]=useState(false);
     async function sendRequest() {
@@ -41,19 +41,19 @@ export const Auth = ({ type }: { type: "signup" | "signin" }) => {
                     </div>
                 </div>
                 <div className="pt-8">
-                    {type === "signup" ? <LabelledInput label="Name" placeholder="john Doe" onChange={(e) => {
+                    {type === "signup" ? <LabelledInput label="Name" placeholder="john Doe" value="" onChange={(e) => {
                         setPostInputs({
                             ...postInputs,
                             name: e.target.value
                         })
                     }} /> : null}
-                    <LabelledInput label="Email" placeholder="johndoe@gmail.com" onChange={(e) => {
+                    <LabelledInput label="Email" value={"admin@gmail.com"} placeholder="johndoe@gmail.com" onChange={(e) => {
                         setPostInputs({
                             ...postInputs,
                             email: e.target.value
                         })
                     }} />
-                    <LabelledInput label="Password" type={"password"} placeholder="123456" onChange={(e) => {
+                    <LabelledInput label="Password" type={"password"}  value="admin12" placeholder="123456" onChange={(e) => {
                         setPostInputs({
                             ...postInputs,
                             password: e.target.value
@@ -71,11 +71,12 @@ interface LabelledInputType {
     placeholder: string;
     onChange: (e: ChangeEvent<HTMLInputElement>) => void;
     type?: string;
+    value:string
 }
 
-function LabelledInput({ label, placeholder, onChange, type }: LabelledInputType) {
+function LabelledInput({ label, placeholder, onChange, type,value }: LabelledInputType) {
     return <div>
         <label className="block mb-2 text-sm text-black font-semibold pt-4">{label}</label>
-        <input onChange={onChange} type={type || "text"} id="first_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder={placeholder} required />
+        <input onChange={onChange} type={type || "text"} value={value} id="first_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder={placeholder} required />
     </div>
 }

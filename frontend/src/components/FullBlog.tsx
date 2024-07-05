@@ -8,13 +8,13 @@ export const FullBlog = ({ blog }: {blog: Blog}) => {
         
         <div className="flex justify-center">
            <div className="max-w-6xl">
-           <div className="text-6xl font-bold">
+           <div className="text-4xl md:text-6xl  font-bold p-4">
                 {blog.title}
             </div>
-            <div className="pt-4 ">
+            <div className=" p-4">
                 Author: <Avatar name={blog.author.name} loading={false}/> {blog.author.name} 
             </div>
-            <div className="pt-4 " dangerouslySetInnerHTML={{__html:blog.content}}>
+            <div className="pt-10 p-4" dangerouslySetInnerHTML={{__html:blog.content}}>
                
             </div>
             
