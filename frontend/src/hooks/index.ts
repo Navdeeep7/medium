@@ -23,7 +23,7 @@ export const useBlogs=()=>{
                 Authorization:localStorage.getItem("token")
             }
         }).then((response:AxiosResponse<any>)=>{
-            setBlogs(response.data.posts);
+            setBlogs(response.data.posts.reverse());
             setloading(false);
         })
 
