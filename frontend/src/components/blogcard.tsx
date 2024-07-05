@@ -25,7 +25,7 @@ export const BlogCard=({
         <div className="text-2xl font-bold mt-2 ">
             {title}
         </div>
-        <div className="font-medium" dangerouslySetInnerHTML={{__html:content.slice(0,150)}}>
+        <div className="font-medium" dangerouslySetInnerHTML={{__html:content.slice(0,300)+"..."}}>
             
 
         </div>
