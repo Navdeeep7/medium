@@ -22,6 +22,7 @@ export const Auth = ({ type }: { type: "signup" | "signin" }) => {
             setLoading(false);
         } catch(e) {
             alert("Error while signing up")
+            setLoading(false)
             // alert the user here that the request failed
         }
     }
@@ -41,24 +42,25 @@ export const Auth = ({ type }: { type: "signup" | "signin" }) => {
                     </div>
                 </div>
                 <div className="pt-8">
-                    {type === "signup" ? <LabelledInput label="Name" placeholder="john Doe" value="" onChange={(e) => {
+                    {type === "signup" ? <LabelledInput label="Name" placeholder="john Doe" value={postInputs.name} onChange={(e) => {
                         setPostInputs({
                             ...postInputs,
                             name: e.target.value
                         })
                     }} /> : null}
-                    <LabelledInput label="Email" value={"admin@gmail.com"} placeholder="johndoe@gmail.com" onChange={(e) => {
+                    <LabelledInput label="Email" value={postInputs.email} placeholder="johndoe@gmail.com" onChange={(e) => {
                         setPostInputs({
                             ...postInputs,
                             email: e.target.value
                         })
                     }} />
-                    <LabelledInput label="Password" type={"password"}  value="admin12" placeholder="123456" onChange={(e) => {
+                    <LabelledInput label="Password" type={"password"}  value={postInputs.password}placeholder="123456" onChange={(e) => {
                         setPostInputs({
                             ...postInputs,
                             password: e.target.value
                         })
                     }} />
+                    
                     <button onClick={sendRequest} type="button" className="mt-8 w-full text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"> {loading ? "Loading..." : (type === "signup" ? "Sign up" : "Sign in")}</button>
                 </div>
             </div>
