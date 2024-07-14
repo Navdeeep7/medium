@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Avatar } from "./blogcard"
+
 import { useNavigate } from "react-router-dom"
 import axios from "axios";
 import { BACKEND_URL } from "../config";
