@@ -12,20 +12,41 @@ export const Auth = ({ type }: { type: "signup" | "signin" }) => {
         password: "admin12"
     });
     const [loading,setLoading]=useState(false);
+    // async function sendRequest() {
+    //     try {
+    //         setLoading(true);
+    //         const response = await axios.post(`${BACKEND_URL}/api/v1/user/${type === "signup" ? "signup" : "signin"}`, postInputs);
+    //         const jwt = response.data;
+    //         localStorage.setItem("token", jwt.jwt);
+    //         navigate("/blogs");
+    //         setLoading(false);
+    //     } catch(e) {
+    //         alert("Error while signing up")
+    //         setLoading(false)
+    //         // alert the user here that the request failed
+    //     }
+    // }
     async function sendRequest() {
         try {
             setLoading(true);
             const response = await axios.post(`${BACKEND_URL}/api/v1/user/${type === "signup" ? "signup" : "signin"}`, postInputs);
+            
+            if (response.data?.msg === "user already exist") {
+                alert("User already exists!");
+                setLoading(false);
+                return; // Stop execution
+            }
+    
             const jwt = response.data;
             localStorage.setItem("token", jwt.jwt);
             navigate("/blogs");
+        } catch (e) {
+            alert("Error while signing up");
+        } finally {
             setLoading(false);
-        } catch(e) {
-            alert("Error while signing up")
-            setLoading(false)
-            // alert the user here that the request failed
         }
     }
+    
     
     return <div className="h-screen flex justify-center flex-col">
         <div className="flex justify-center">
