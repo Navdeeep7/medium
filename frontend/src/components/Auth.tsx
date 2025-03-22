@@ -34,6 +34,7 @@ export const Auth = ({ type }: { type: "signup" | "signin" }) => {
             if (response.data?.msg === "user already exist") {
                 alert("User already exists!");
                 setLoading(false);
+                navigate("/signin");
                 return; // Stop execution
             }
     
